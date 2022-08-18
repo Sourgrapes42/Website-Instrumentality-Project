@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bgm.tv 删除时间线
 // @namespace    https://github.com/Sourgrapes42/
-// @version      0.1
+// @version      0.2
 // @description  bgm.tv 删除时间线
 // @author       Sourgrapes42
 // @match        https://bgm.tv/user/*/timeline
