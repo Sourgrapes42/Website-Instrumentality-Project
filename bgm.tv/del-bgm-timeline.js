@@ -5,7 +5,7 @@
 // @description  bgm.tv 删除时间线
 // @author       Sourgrapes42
 // @match        https://bgm.tv/user/*/timeline
-// @updateURL    https://github.com/Sourgrapes42/del-bgm-timeline/raw/master/index.js
+// @updateURL    https://github.com/Sourgrapes42/Website-Instrumentality-Project/raw/master/dev/bgm.tv/del-bgm-timeline.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bgm.tv
 // @grant        none
 // ==/UserScript==
