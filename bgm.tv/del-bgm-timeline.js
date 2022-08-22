@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         bgm.tv 删除时间线
 // @namespace    https://github.com/Sourgrapes42/
-// @version      0.2
+// @version      0.3
 // @description  bgm.tv 删除时间线
 // @author       Sourgrapes42
 // @match        https://bgm.tv/user/*/timeline
@@ -19,9 +19,8 @@
   if (tmlContent) {
     tmlContent.parentElement.insertBefore(delBUtton, tmlContent);
   }
-  delBUtton.addEventListener("click", () => {
+  delBUtton.addEventListener("click", async () => {
     const closeButtons = document.querySelectorAll(".tml_del");
-    console.log("[ closeButtons ]-17-「Untitled-1」", closeButtons);
     const urls = Array.from(closeButtons).map((button) => {
       return button.getAttribute("href") + "&ajax=1";
     });
@@ -29,20 +28,16 @@
       alert("没有可删除的时间线");
       return;
     }
-    console.log("[ urls ]-28-「Untitled-1」", urls);
-    urls.forEach((url, index) => {
-      setTimeout(() => {
-        fetch(url, {
-          body: null,
-          method: "GET",
-          mode: "cors",
-          credentials: "include",
-        });
-      }, index * 100);
-    });
+    for (let index = 0; index < urls.length; index++) {
+      const url = urls[index];
+      await fetch(url, {
+        body: null,
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+      });
+    }
     alert(`删除了${urls.length}条时间线，即将自动刷新`);
-    setTimeout(() => {
-      window.location.reload();
-    }, urls.length * 100 + 1000);
+    window.location.reload();
   });
 })();
